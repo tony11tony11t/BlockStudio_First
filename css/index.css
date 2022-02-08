@@ -22,6 +22,11 @@
 .navBar__items ul li {
   list-style: none;
   margin-left: 73px;
+  cursor: pointer;
+}
+
+.navBar__items ul li:hover {
+  list-style: disc;
 }
 
 .slider__img {
@@ -31,6 +36,8 @@
   background-image: url("../assets/image/Banner/b-1.png");
   background-size: 100%;
   background-position: center;
+  -webkit-clip-path: path("M10,10 h20% a20,20 0 0 1 20,20 v200 a20,20 0 0 1 -20,20 h-200 a20,20 0 0 1 -20,-20 v-200 a20,20 0 0 1 20,-20 z");
+          clip-path: path("M10,10 h20% a20,20 0 0 1 20,20 v200 a20,20 0 0 1 -20,20 h-200 a20,20 0 0 1 -20,-20 v-200 a20,20 0 0 1 20,-20 z");
 }
 
 .productSlider {
@@ -186,6 +193,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 12px 40px;
 }
 
