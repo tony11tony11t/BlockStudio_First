@@ -1,0 +1,16 @@
+@mixin mobile{
+    @media(max-width:360px){
+      @content;
+    }
+}
+
+@mixin  fontSize($size , $lineHeight) {
+    font-size: $size;
+    line-height: $lineHeight;
+    color: $white;
+}
+
+@mixin MaxLimit{
+    max-width: 1400px;
+    margin: auto;
+}

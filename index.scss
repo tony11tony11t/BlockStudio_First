@@ -1,0 +1,164 @@
+@import "./template" , "./variable";
+
+.navBar{
+    border-bottom: 1px solid $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 40px;
+
+    &__logo{
+        height: 30px;
+    }
+    &__items{
+        ul{
+           display: flex;
+
+           li{
+               list-style: none;
+               margin-left: 73px;
+           }
+        }
+    }
+}
+
+.slider{
+    &__img{
+        width: 95%;
+        margin: 18px auto 0;
+        height:700px;
+        background-image: url("../assets/image/Banner/b-1.png");
+        background-size: 100%;
+        background-position: center;
+    }
+}
+
+.productSlider{
+
+    width: 95%;
+    margin: 70px auto 0;
+    display: flex;
+    justify-content: space-between;
+
+    &__title{
+        flex: 1;
+    }
+
+    &__items{
+        flex: 1;
+        height: 1054px;
+        position: relative;
+        
+    }
+    &__item{
+        position: absolute;
+
+        &:nth-child(1){
+            right:80px;
+
+            img{
+                width: 375px;
+            }
+        }
+
+        &:nth-child(2){
+            right:600px;
+            top:380px;
+            
+            img{
+                width: 260px;
+            }
+        }
+
+        &:nth-child(3){
+            right:80px;
+            top:650px;
+            
+            img{
+                width: 220px;
+            }
+        }
+        
+    }
+}
+
+.marquee{
+    height: 780px;
+    background-image: url("../assets/image/Full Screen/b-2.png");
+
+    h1{
+        white-space:nowrap;
+        padding-top: 32px;
+    }
+}
+
+.collections{
+    margin-top: 150px;
+    height: 760px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &__container{
+        position: relative;
+    }
+
+    &__mainImg{
+        position: absolute;
+        left: -100px;
+        top:0px;
+        width: 100%;
+        max-width: 780px;
+        height: 495px;
+        background-image: url("../assets/image/Swiper/b-8.png");
+        background-position: center;
+        background-size: 100%;
+    }
+
+    &__content{
+        position: relative;
+        left:100px;
+        top:100px;
+        padding: 25px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border:1px solid $white;
+        width: 100%;
+        max-width: 800px;
+        height: 550px;
+        border-radius: 40px;
+    }
+}
+
+.modalBlock{
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &__3Dmodal{
+        position: absolute;
+
+        img{
+            width: 500px;
+        }
+    }
+
+    h1{
+        white-space:nowrap;
+    }
+}
+
+.footer{
+    border-top: 1px solid $white;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 40px;
+
+    &__logo{
+        height: 30px;
+    }
+
+}

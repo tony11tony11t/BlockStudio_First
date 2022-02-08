@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../assets/image/Background/bg.png");
+  background-repeat: repeat;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Cormorant";
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 120px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 44px;
+    line-height: 44px;
+    color: #FFFFFF;
+  }
+}
+
+h2 {
+  font-family: "Oswald";
+  font-weight: 600;
+  font-size: 110px;
+  line-height: 110px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  h2 {
+    font-size: 40px;
+    line-height: 40px;
+    color: #FFFFFF;
+  }
+}
+
+h3 {
+  font-family: "Oswald";
+  font-size: 60px;
+  line-height: 90px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  h3 {
+    font-size: 40px;
+    line-height: 60px;
+    color: #FFFFFF;
+  }
+}
+
+h4 {
+  font-family: "Cormorant";
+  font-size: 78px;
+  line-height: 90px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  h4 {
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+  }
+}
+
+.font-body1 {
+  font-family: "Helvetica";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  .font-body1 {
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+  }
+}
+
+.font-body2 {
+  font-family: "Cormorant";
+  text-decoration: underline;
+  font-size: 18px;
+  line-height: 27px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  .font-body2 {
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+}
+
+.font-utility {
+  font-family: "Helvetica";
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 20px;
+  line-height: 36px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 360px) {
+  .font-utility {
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+  }
+}

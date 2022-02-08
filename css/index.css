@@ -1,0 +1,194 @@
+.navBar {
+  border-bottom: 1px solid #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 40px;
+}
+
+.navBar__logo {
+  height: 30px;
+}
+
+.navBar__items ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navBar__items ul li {
+  list-style: none;
+  margin-left: 73px;
+}
+
+.slider__img {
+  width: 95%;
+  margin: 18px auto 0;
+  height: 700px;
+  background-image: url("../assets/image/Banner/b-1.png");
+  background-size: 100%;
+  background-position: center;
+}
+
+.productSlider {
+  width: 95%;
+  margin: 70px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.productSlider__title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.productSlider__items {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 1054px;
+  position: relative;
+}
+
+.productSlider__item {
+  position: absolute;
+}
+
+.productSlider__item:nth-child(1) {
+  right: 80px;
+}
+
+.productSlider__item:nth-child(1) img {
+  width: 375px;
+}
+
+.productSlider__item:nth-child(2) {
+  right: 600px;
+  top: 380px;
+}
+
+.productSlider__item:nth-child(2) img {
+  width: 260px;
+}
+
+.productSlider__item:nth-child(3) {
+  right: 80px;
+  top: 650px;
+}
+
+.productSlider__item:nth-child(3) img {
+  width: 220px;
+}
+
+.marquee {
+  height: 780px;
+  background-image: url("../assets/image/Full Screen/b-2.png");
+}
+
+.marquee h1 {
+  white-space: nowrap;
+  padding-top: 32px;
+}
+
+.collections {
+  margin-top: 150px;
+  height: 760px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.collections__container {
+  position: relative;
+}
+
+.collections__mainImg {
+  position: absolute;
+  left: -100px;
+  top: 0px;
+  width: 100%;
+  max-width: 780px;
+  height: 495px;
+  background-image: url("../assets/image/Swiper/b-8.png");
+  background-position: center;
+  background-size: 100%;
+}
+
+.collections__content {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  padding: 25px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border: 1px solid #FFFFFF;
+  width: 100%;
+  max-width: 800px;
+  height: 550px;
+  border-radius: 40px;
+}
+
+.modalBlock {
+  height: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modalBlock__3Dmodal {
+  position: absolute;
+}
+
+.modalBlock__3Dmodal img {
+  width: 500px;
+}
+
+.modalBlock h1 {
+  white-space: nowrap;
+}
+
+.footer {
+  border-top: 1px solid #FFFFFF;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 40px;
+}
+
+.footer__logo {
+  height: 30px;
+}
