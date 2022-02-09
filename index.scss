@@ -27,15 +27,20 @@
 }
 
 .slider{
+    text-align: center;
+    height:50vw;
+    max-height: 700px;
+    width: 95%;
+    margin: auto;
+
     &__img{
-        width: 95%;
+        max-width: 1200px;
+        width:100%;
         margin: 18px auto 0;
-        height:700px;
-        background-image: url("../assets/image/Banner/b-1.png");
-        background-size: 100%;
-        background-position: center;
-        clip-path: path("M10,10 h20% a20,20 0 0 1 20,20 v200 a20,20 0 0 1 -20,20 h-200 a20,20 0 0 1 -20,-20 v-200 a20,20 0 0 1 20,-20 z")
-    }
+        height:100%;
+        
+        @include bannerImg(1)
+    } 
 }
 
 .productSlider{
@@ -46,7 +51,7 @@
     justify-content: space-between;
 
     &__title{
-        flex: 1;
+        flex: 1.5;
     }
 
     &__items{
@@ -58,32 +63,26 @@
     &__item{
         position: absolute;
 
-        &:nth-child(1){
-            right:80px;
+        @mixin itemsStyle($index , $right , $top , $width) {
+            &:nth-child(#{$index}){
+                @if $right{
+                    right:$right;
+                }
 
-            img{
-                width: 375px;
+                @if $top{
+                    top:$top;
+                }
+                
+                img{
+                    width: $width;
+                    @include mask($index , "Seasonal Item")
+                }
             }
         }
 
-        &:nth-child(2){
-            right:600px;
-            top:380px;
-            
-            img{
-                width: 260px;
-            }
-        }
-
-        &:nth-child(3){
-            right:80px;
-            top:650px;
-            
-            img{
-                width: 220px;
-            }
-        }
-        
+        @include itemsStyle(1 , 80px , null , 375px);
+        @include itemsStyle(2 , 600px , 380px , 260px);
+        @include itemsStyle(3 , 80px , 650px , 220px);
     }
 }
 
@@ -94,6 +93,8 @@
     h1{
         white-space:nowrap;
         padding-top: 32px;
+        position: relative;
+        left: -600px;
     }
 }
 
@@ -115,14 +116,15 @@
         width: 100%;
         max-width: 780px;
         height: 495px;
-        background-image: url("../assets/image/Swiper/b-8.png");
+        background-image: url("../assets/image/Swiper/Swiper1.png");
         background-position: center;
         background-size: 100%;
+        @include mask("" , "Swiper");
     }
 
     &__content{
         position: relative;
-        left:100px;
+        left:50px;
         top:100px;
         padding: 25px 40px;
         display: flex;
@@ -133,6 +135,47 @@
         max-width: 800px;
         height: 550px;
         border-radius: 40px;
+    }
+
+    &__button{
+        width: 160px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 130px;
+        border:1px solid $white;
+        border-top:none;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        
+
+        &:not(.disable){
+
+            background-color: $white;
+            span{
+                color:$black;
+            }
+
+            &:hover{
+                background-color: rgba(255,255,255,0.9);
+                cursor: pointer;
+            }
+        }
+
+        &-next{
+            right: 0;
+            transform-origin: right top;
+            transform: rotate(-90deg);
+            
+        }
+
+        &-prev{
+            right: -162px;
+            transform-origin: left top;
+            transform: rotate(90deg);
+        }
     }
 }
 

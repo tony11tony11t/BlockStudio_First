@@ -4,10 +4,25 @@
     }
 }
 
-@mixin  fontSize($size , $lineHeight) {
+@mixin fontSize($size , $lineHeight) {
     font-size: $size;
     line-height: $lineHeight;
     color: $white;
+}
+
+@mixin mask($index , $category) {
+    mask-image:url("../assets/image/"+$category+"/mask"+$index+".png");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-position: center;
+}
+
+@mixin bannerImg($index) {
+    @include mask($index , "banner");
+    background-image: url("../assets/image/Banner/banner"+$index+".png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @mixin MaxLimit{
