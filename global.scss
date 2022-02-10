@@ -124,3 +124,37 @@ button{
 
 }
 
+.doodle{
+    &-rotate3D{
+        animation: rotating3D 10s linear infinite;
+    }
+
+    &-rotate{
+        animation: rotating 10s linear infinite;
+    }
+    &-paint{
+        path{
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+        }
+    }
+}
+
+@keyframes rotating3D {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+

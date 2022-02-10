@@ -26,27 +26,69 @@
     }
 }
 
-.slider{
+.banner{
+    @include MaxLimit;
     text-align: center;
     height:50vw;
     max-height: 700px;
     width: 95%;
     margin: auto;
 
+    &__wrapper{
+        height:100%;
+        white-space: nowrap;
+    }
+
+    &__button{
+        color:$white;
+    }
+
+
     &__img{
         max-width: 1200px;
         width:100%;
         margin: 18px auto 0;
         height:100%;
-        
-        @include bannerImg(1)
-    } 
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @mixin bannerStyle($index) {
+            &-#{$index}{
+                @include mask($index , "banner");
+                background-image: url("../assets/image/Banner/banner"+$index+".png");
+            }
+        }
+
+        @include bannerStyle(1);
+        @include bannerStyle(2);
+        @include bannerStyle(3);
+    }
+
+    &__doodle{
+        position: absolute;
+        z-index: 100;
+
+        &-smile{
+            top: 76px;
+            right: 15%;
+            width: 15%;
+            max-width: 128px;
+        }
+
+        &-sign{
+            top:65%;
+            left:12%;
+            width: 40%;
+            max-width: 540px;
+        }
+    }
 }
 
 .productSlider{
-
+    @include MaxLimit;
     width: 95%;
-    margin: 70px auto 0;
+    margin: 100px auto;
     display: flex;
     justify-content: space-between;
 
@@ -62,15 +104,20 @@
     }
     &__item{
         position: absolute;
+        z-index: 100;
 
-        @mixin itemsStyle($index , $right , $top , $width) {
-            &:nth-child(#{$index}){
+        @mixin itemsStyle($index , $right , $top , $width , $scale) {
+            &:nth-of-type(#{$index}){
                 @if $right{
                     right:$right;
                 }
 
                 @if $top{
                     top:$top;
+                }
+
+                @if $scale{
+                    transform: scale($scale);
                 }
                 
                 img{
@@ -80,61 +127,103 @@
             }
         }
 
-        @include itemsStyle(1 , 80px , null , 375px);
-        @include itemsStyle(2 , 600px , 380px , 260px);
-        @include itemsStyle(3 , 80px , 650px , 220px);
+        @include itemsStyle(1 , 120px , 120px , 260px , 1.4);
+        @include itemsStyle(2 , 120px , 650px , 220px , null);
+        @include itemsStyle(3 , 600px , 480px , 260px , null);
+    }
+
+    &__doodle{
+        position: absolute;
+        z-index: 100;
+
+        &-line1{
+            right: 0;
+            top: 150px;
+        }
+
+        &-line2{
+            left: -200px;
+            bottom: 100px;
+        }
     }
 }
 
 .marquee{
-    height: 780px;
+    height: 1500px;
     background-image: url("../assets/image/Full Screen/b-2.png");
 
     h1{
         white-space:nowrap;
         padding-top: 32px;
         position: relative;
-        left: -600px;
     }
 }
 
 .collections{
-    margin-top: 150px;
-    height: 760px;
+    @include MaxLimit;
+
+    margin-top: 290px;
+    height: 800px;
     position: relative;
     display: flex;
     justify-content: center;
 
-    &__container{
-        position: relative;
+    &__introContainer{
+        overflow: hidden;
+        height: 200px;
+        
+
+        .swiper-slide{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
     }
+    
 
     &__mainImg{
-        position: absolute;
-        left: -100px;
-        top:0px;
+        
         width: 100%;
-        max-width: 780px;
         height: 495px;
-        background-image: url("../assets/image/Swiper/Swiper1.png");
         background-position: center;
         background-size: 100%;
-        @include mask("" , "Swiper");
+
+        @mixin collectionStyle($index) {
+            &-#{$index}{
+                background-image: url("../assets/image/Swiper/Swiper"+$index+".png");
+            }
+        }
+
+        @include collectionStyle(1);
+        @include collectionStyle(2);
+        @include collectionStyle(3);
+        @include collectionStyle(4);
+        @include collectionStyle(5);
+        @include collectionStyle(6);
+        
     }
 
     &__content{
         position: relative;
-        left:50px;
-        top:100px;
+        left:100px;
+        border:1px solid $white;
+        border-radius: 40px;
         padding: 25px 40px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        border:1px solid $white;
-        width: 100%;
+        width: 95%;
         max-width: 800px;
-        height: 550px;
-        border-radius: 40px;
+        height: 500px;
+    }
+
+    &__mask{
+        position: relative;
+        left: -250px;
+        top:0px;
+        max-width: 780px;
+        @include mask("" , "Swiper"); 
     }
 
     &__button{
@@ -177,6 +266,30 @@
             transform: rotate(90deg);
         }
     }
+
+    &__doodle{
+        position: absolute;
+        z-index: 100;
+
+        &-line{
+            top: -180px;
+            right: 10%;
+            width: 20%;
+            max-width: 200px;
+        }
+
+        &-earth{
+            top:50%;
+            left:8%;
+            width: 20%;
+            max-width: 150px;
+        }
+
+        &-ball{
+            top: -150px;
+            right: 14%;
+        }
+    }
 }
 
 .modalBlock{
@@ -185,9 +298,30 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    &__doodle{
+        &-stone{
+            position: absolute;
+
+            @mixin stoneStyle($index , $right , $top , $width) {
+                &:nth-child(#{$index}){
+                    right:$right;
+                    top:$top;
+                    width: $width;
+                }
+            }
+    
+            @include stoneStyle(1 , 15% , 10% , 50px);
+            @include stoneStyle(2 , 15% , 80% , 70px);
+            @include stoneStyle(3 , 80% , 20% , 60px);
+            
+        }
+    }
 
     &__3Dmodal{
         position: absolute;
+        z-index: 100;
 
         img{
             width: 500px;
@@ -196,6 +330,12 @@
 
     h1{
         white-space:nowrap;
+    }
+
+    &__logo{
+        position: absolute;
+        width: 90%;
+        z-index: 200;
     }
 }
 

@@ -17,14 +17,6 @@
     mask-position: center;
 }
 
-@mixin bannerImg($index) {
-    @include mask($index , "banner");
-    background-image: url("../assets/image/Banner/banner"+$index+".png");
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 @mixin MaxLimit{
     max-width: 1400px;
     margin: auto;

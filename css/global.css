@@ -176,3 +176,62 @@ button:hover .content span {
             transform: translate3d(-112%, 0, 0);
   }
 }
+
+.doodle-rotate3D {
+  -webkit-animation: rotating3D 10s linear infinite;
+          animation: rotating3D 10s linear infinite;
+}
+
+.doodle-rotate {
+  -webkit-animation: rotating 10s linear infinite;
+          animation: rotating 10s linear infinite;
+}
+
+.doodle-paint path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+}
+
+@-webkit-keyframes rotating3D {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotating3D {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
