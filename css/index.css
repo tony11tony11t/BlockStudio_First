@@ -208,8 +208,10 @@
 
 @media (max-width: 1024px) {
   .productSlider__items {
-    -ms-flex-preferred-size: 700px;
-        flex-basis: 700px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    height: 800px;
   }
 }
 
@@ -221,12 +223,11 @@
 .productSlider__item:nth-of-type(1) {
   right: 120px;
   top: 120px;
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  width: 50%;
 }
 
 .productSlider__item:nth-of-type(1) img {
-  width: 260px;
+  width: 100%;
   -webkit-mask-image: url("../assets/image/Seasonal Item/mask1.png");
           mask-image: url("../assets/image/Seasonal Item/mask1.png");
   -webkit-mask-repeat: no-repeat;
@@ -240,10 +241,11 @@
 .productSlider__item:nth-of-type(2) {
   right: 600px;
   top: 480px;
+  width: 30%;
 }
 
 .productSlider__item:nth-of-type(2) img {
-  width: 260px;
+  width: 100%;
   -webkit-mask-image: url("../assets/image/Seasonal Item/mask2.png");
           mask-image: url("../assets/image/Seasonal Item/mask2.png");
   -webkit-mask-repeat: no-repeat;
@@ -257,10 +259,11 @@
 .productSlider__item:nth-of-type(3) {
   right: 120px;
   top: 650px;
+  width: 30%;
 }
 
 .productSlider__item:nth-of-type(3) img {
-  width: 220px;
+  width: 100%;
   -webkit-mask-image: url("../assets/image/Seasonal Item/mask3.png");
           mask-image: url("../assets/image/Seasonal Item/mask3.png");
   -webkit-mask-repeat: no-repeat;
@@ -272,21 +275,13 @@
 }
 
 @media (max-width: 1024px) {
-  .productSlider__item {
-    -webkit-transform-origin: top right;
-            transform-origin: top right;
-  }
-  .productSlider__item p {
-    text-align: center;
-  }
   .productSlider__item:nth-of-type(1) {
     right: 30px;
-    top: 20px;
-    -webkit-transform: scale(1.4);
-            transform: scale(1.4);
+    top: 0%;
+    width: 50%;
   }
   .productSlider__item:nth-of-type(1) img {
-    width: 150px;
+    width: 100%;
     -webkit-mask-image: url("../assets/image/Seasonal Item/mask1.png");
             mask-image: url("../assets/image/Seasonal Item/mask1.png");
     -webkit-mask-repeat: no-repeat;
@@ -298,10 +293,11 @@
   }
   .productSlider__item:nth-of-type(2) {
     left: -1px;
-    top: 180px;
+    top: 30%;
+    width: 30%;
   }
   .productSlider__item:nth-of-type(2) img {
-    width: 110px;
+    width: 100%;
     -webkit-mask-image: url("../assets/image/Seasonal Item/mask2.png");
             mask-image: url("../assets/image/Seasonal Item/mask2.png");
     -webkit-mask-repeat: no-repeat;
@@ -313,10 +309,11 @@
   }
   .productSlider__item:nth-of-type(3) {
     right: 30px;
-    top: 350px;
+    top: 60%;
+    width: 30%;
   }
   .productSlider__item:nth-of-type(3) img {
-    width: 110px;
+    width: 100%;
     -webkit-mask-image: url("../assets/image/Seasonal Item/mask3.png");
             mask-image: url("../assets/image/Seasonal Item/mask3.png");
     -webkit-mask-repeat: no-repeat;
@@ -354,12 +351,9 @@
 
 @media (max-width: 1024px) {
   .productSlider__doodle-line2 {
-    bottom: 100px;
-    left: 0;
-    -webkit-transform-origin: left;
-            transform-origin: left;
-    -webkit-transform: scale(0.4);
-            transform: scale(0.4);
+    bottom: 200px;
+    left: 5%;
+    width: 30%;
   }
 }
 
@@ -392,18 +386,24 @@
 }
 
 .collections {
-  width: 70%;
+  max-width: 1400px;
+  margin: auto;
+  width: 60%;
   margin: 290px auto 0;
-  /* @include MaxLimit;
-    height: 800px;
-    display: flex;
-    justify-content: center; */
   position: relative;
+  height: 700px;
+}
+
+@media (max-width: 1024px) {
+  .collections {
+    width: 80%;
+    margin: 200px auto 0;
+  }
 }
 
 .collections__intro {
   position: absolute;
-  bottom: 0;
+  bottom: 16px;
 }
 
 .collections__introContainer {
@@ -411,11 +411,20 @@
   height: 200px;
 }
 
+@media (max-width: 1024px) {
+  .collections__introContainer {
+    height: 140px;
+  }
+  .collections__introContainer h4 {
+    margin-top: 10px;
+  }
+}
+
 .collections__mainImg {
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
 }
 
 .collections__mainImg-1 {
@@ -443,14 +452,25 @@
 }
 
 .collections__content {
-  position: relative;
+  position: absolute;
   border: 1px solid #FFFFFF;
   border-radius: 40px;
   padding: 0 40px 50%;
   height: 0;
-  top: -200px;
-  left: 80px;
+  left: 5%;
   z-index: 100;
+  width: 100%;
+  top: 33%;
+}
+
+@media (max-width: 1024px) {
+  .collections__content {
+    border-radius: 20px;
+    left: 0;
+    padding: 0 15px 100%;
+    width: 80%;
+    top: 25%;
+  }
 }
 
 .collections__mask {
@@ -466,6 +486,13 @@
           mask-size: 100% 100%;
   -webkit-mask-position: center;
           mask-position: center;
+}
+
+@media (max-width: 1024px) {
+  .collections__mask {
+    left: 0;
+    padding-bottom: 100%;
+  }
 }
 
 .collections__wrapper {
@@ -486,11 +513,22 @@
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 130px;
+  top: 20%;
   border: 1px solid #FFFFFF;
   border-top: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+@media (max-width: 1024px) {
+  .collections__button {
+    width: 80px;
+    height: 35px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: auto;
+    bottom: 35%;
+  }
 }
 
 .collections__button:not(.disable) {
@@ -522,6 +560,12 @@
           transform: rotate(90deg);
 }
 
+@media (max-width: 1024px) {
+  .collections__button-prev {
+    right: -80px;
+  }
+}
+
 .collections__doodle {
   position: absolute;
   z-index: 100;
@@ -529,21 +573,41 @@
 
 .collections__doodle-line {
   top: -180px;
-  right: 10%;
+  right: -10%;
   width: 20%;
   max-width: 200px;
 }
 
+@media (max-width: 1024px) {
+  .collections__doodle-line {
+    right: 0;
+    width: 100%;
+  }
+}
+
 .collections__doodle-earth {
-  top: 50%;
-  left: 0%;
+  top: 75%;
+  left: -150px;
   width: 20%;
   max-width: 150px;
 }
 
+@media (max-width: 1024px) {
+  .collections__doodle-earth {
+    left: 0;
+    width: 40%;
+  }
+}
+
 .collections__doodle-ball {
   top: -150px;
-  right: 14%;
+  right: -5%;
+}
+
+@media (max-width: 1024px) {
+  .collections__doodle-ball {
+    right: 0;
+  }
 }
 
 .modalBlock {

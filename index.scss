@@ -124,7 +124,8 @@
         position: relative;
 
         @include mobile{
-            flex-basis: 700px;
+            flex: 0 0 auto;
+            height: 800px;
         }
         
     }
@@ -132,13 +133,11 @@
         position: absolute;
         z-index: 100;
 
-        @mixin itemsStyle($index , $right , $top , $width , $scale) {
+        @mixin itemsStyle($index , $right , $top , $IsBig:false) {
             &:nth-of-type(#{$index}){
                 @if $right > 0{
                     right:$right;
-                }
-
-                @if $right < 0{
+                }@else{
                     left:$right;
                 }
 
@@ -146,31 +145,28 @@
                     top:$top;
                 }
 
-                @if $scale{
-                    transform: scale($scale);
+                @if $IsBig{
+                    width: 50%;
+                }@else{
+                    width: 30%;
                 }
                 
                 img{
-                    width: $width;
+                    width: 100%;
                     @include mask($index , "Seasonal Item")
                 }
             }
         }
 
-        @include itemsStyle(1 , 120px , 120px , 260px , 1.4);
-        @include itemsStyle(2 , 600px , 480px , 260px , null);
-        @include itemsStyle(3 , 120px , 650px , 220px , null);
+        @include itemsStyle(1 , 120px , 120px , $IsBig: true);
+        @include itemsStyle(2 , 600px , 480px);
+        @include itemsStyle(3 , 120px , 650px);
 
         @include mobile{
-            transform-origin: top right;
 
-            p{
-                text-align: center
-            }
-
-            @include itemsStyle(1 , 30px , 20px , 150px , 1.4);
-            @include itemsStyle(2 , -1px , 180px , 110px , null);
-            @include itemsStyle(3 , 30px , 350px , 110px , null);
+            @include itemsStyle(1 , 30px , 0% , $IsBig: true);
+            @include itemsStyle(2 , -1px , 30%);
+            @include itemsStyle(3 , 30px , 60%);
         }
     }
 
@@ -194,10 +190,9 @@
             bottom: 100px;
 
             @include mobile{
-                bottom: 100px;
-                left: 0;
-                transform-origin: left;
-                transform: scale(0.4);
+                bottom: 200px;
+                left: 5%;
+                width: 30%;
             }
         }
     }
@@ -229,33 +224,41 @@
 }
 
 .collections{
-    width: 70%;
+    @include MaxLimit;
+    width: 60%;
     margin: 290px auto 0 ;
-
-    /* @include MaxLimit;
-    height: 800px;
-    display: flex;
-    justify-content: center; */
-
     position: relative;
+    height: 700px;
+
+    @include mobile{
+        width: 80%;
+        margin: 200px auto 0 ;
+    }
 
     &__intro{
         position: absolute;
-        bottom:0;
+        bottom:16px;
     }
 
     &__introContainer{
         overflow: hidden;
         height: 200px;
+
+        @include mobile{
+            height: 140px;
+
+            h4{
+                margin-top: 10px;
+            }
+        }
     }
-    
 
     &__mainImg{
         
         width: 100%;
         height: 100%;
         background-position: center;
-        background-size: 100%;
+        background-size: cover;
 
         @mixin collectionStyle($index) {
             &-#{$index}{
@@ -275,14 +278,24 @@
 
     &__content{
 
-        position: relative;
+        position: absolute;
         border:1px solid $white;
         border-radius: 40px;
         padding: 0 40px 50%;
         height: 0;
-        top: -200px;
-        left: 80px;
+        left: 5%;
         z-index: 100;
+        width: 100%;
+        top: 33%;
+
+        @include mobile{
+            border-radius: 20px;
+            left: 0;
+            padding: 0 15px 100%;
+            width: 80%;
+            top: 25%;
+        }
+        
     }
 
     &__mask{
@@ -291,6 +304,11 @@
         left: -100px;
         z-index: 200;
         @include mask("" , "Swiper"); 
+
+        @include mobile{
+            left: 0;
+            padding-bottom:100%;
+        }
     }
 
     &__wrapper{
@@ -305,11 +323,20 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 130px;
+        top: 20%;
         border:1px solid $white;
         border-top:none;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
+
+        @include mobile{
+            width: 80px;
+            height: 35px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            top: auto;
+            bottom: 35%;
+        }
         
 
         &:not(.disable){
@@ -336,6 +363,10 @@
             right: -162px;
             transform-origin: left top;
             transform: rotate(90deg);
+
+            @include mobile{
+                right: -80px;
+            }
         }
     }
 
@@ -345,21 +376,35 @@
 
         &-line{
             top: -180px;
-            right: 10%;
+            right: -10%;
             width: 20%;
             max-width: 200px;
+
+            @include mobile{
+                right: 0;
+                width: 100%;
+            }
         }
 
         &-earth{
-            top:50%;
-            left:0%;
+            top:75%;
+            left: -150px;
             width: 20%;
             max-width: 150px;
+
+            @include mobile{
+                left: 0;
+                width: 40%;
+            }
         }
 
         &-ball{
             top: -150px;
-            right: 14%;
+            right: -5%;
+
+            @include mobile{
+                right: 0;
+            }
         }
     }
 }

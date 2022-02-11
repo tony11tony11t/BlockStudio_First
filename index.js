@@ -106,7 +106,8 @@ window.onload = () => {
     })
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(1)" , {
-        scale: 1,
+        width:'30%',
+
         onComplete: () => {
             for(let i = 1 ; i < 4 ; i++){
                 document
@@ -124,11 +125,11 @@ window.onload = () => {
     })
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
-        scale: 1.6
+        width:'50%'
     },"<")
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
-        scale: 1,
+        width:'30%',
 
         onComplete: () => {
             for(let i = 1 ; i < 4 ; i++){
@@ -147,7 +148,7 @@ window.onload = () => {
     },"+1.5")
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(3)" , {
-        scale: 1.7
+        width:'50%'
     } , "<") 
 
     /* Scrolltrigger marquee */
