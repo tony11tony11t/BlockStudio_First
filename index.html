@@ -23,13 +23,18 @@
 <body>
     <header class="navBar">
         <img src='./assets/logo.png' class="navBar__logo"/>
-        <nav class="navBar__items">
+        <nav class="navBar__items desktop">
             <ul>
                 <li class="font-body2">HOME</li>
                 <li class="font-body2">ABOUT</li>
                 <li class="font-body2">SERVICE</li>
                 <li class="font-body2">GALLERY</li>
                 <li class="font-body2">CONTACT</li>
+            </ul>
+        </nav>
+        <nav class="navBar__items mobile">
+            <ul>
+                <li class="font-body2">MENU</li>
             </ul>
         </nav>
     </header>
@@ -52,7 +57,7 @@
         <div class="productSlider__title">
             <h1>SEASONAL</h1>
             <h2>FEATURED
-                <button>
+                <button class="desktop">
                     <span class="content">
                       <span data-text="EXPLORE MORE" class="font-utility">
                         EXPLORE MORE
@@ -61,6 +66,13 @@
                 </button>
             </h2>
             <h1>ITEMS</h1>
+            <button class="mobile">
+                <span class="content">
+                  <span data-text="EXPLORE MORE" class="font-utility">
+                    EXPLORE MORE
+                  </span>
+                </span>
+            </button>
         </div>
         <div class="productSlider__items">
             <svg width="67" height="233" viewBox="0 0 67 233" fill="none" xmlns="http://www.w3.org/2000/svg" class="productSlider__doodle productSlider__doodle-line1 doodle-paint">
@@ -72,17 +84,20 @@
 
             <div class="productSlider__item">
                 <img src="./assets/image/Seasonal Item/item1.png" />
-                <p class='font-body1'>CLASSIC JACKET</p>
+                <p class='font-body1 desktop'>CLASSIC JACKET</p>
+                <p class='font-body1 mobile'>CLASSIC<br/>JACKET</p>
             </div>
 
             <div class="productSlider__item">
                 <img src="./assets/image/Seasonal Item/item2.png" />
-                <p class='font-body1'>CLASSIC JACKET</p>
+                <p class='font-body1 desktop'>CLASSIC JACKET</p>
+                <p class='font-body1 mobile'>CLASSIC<br/>JACKET</p>
             </div>
 
             <div class="productSlider__item">
                 <img src="./assets/image/Seasonal Item/item3.png" />
-                <p class='font-body1'>CLASSIC JACKET</p>
+                <p class='font-body1 desktop'>CLASSIC JACKET</p>
+                <p class='font-body1 mobile'>CLASSIC<br/>JACKET</p>
             </div>
         </div>
     </div>
@@ -98,21 +113,20 @@
         <svg class="collections__doodle collections__doodle-line doodle-paint" width="233" height="156" viewBox="0 0 233 156" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.9483 59.5823C11.4732 54.5525 31.092 48.9311 40.8276 56.0319C62.5948 71.9082 23.569 128.224 1 155C21.5038 127.04 64.5471 71.565 72.6897 73.3402C80.8322 75.1154 53.3659 120.531 38.615 143.017C70.477 106.773 146.477 39.4707 178.897 20.9714C204.563 6.32572 216.069 3.66282 232 1" stroke="#7C7C7C"/>
         </svg>
-        <img src="assets/SVG/earth.svg" class="collections__doodle collections__doodle-earth doodle-rotate3D"/>
         <img src="assets/SVG/ball.svg" class="collections__doodle collections__doodle-ball doodle-rotate"/>
 
         <div class="collections__container" >
-            <div class="collections__content">
-                <div class="collections__mask">
-                    <div class="swiper-wrapper">
-                        <div class="collections__mainImg collections__mainImg-1 swiper-slide"></div>
-                        <div class="collections__mainImg collections__mainImg-2  swiper-slide"></div>
-                        <div class="collections__mainImg collections__mainImg-3  swiper-slide"></div>
-                        <div class="collections__mainImg collections__mainImg-4  swiper-slide"></div>
-                        <div class="collections__mainImg collections__mainImg-5  swiper-slide"></div>
-                        <div class="collections__mainImg collections__mainImg-6  swiper-slide"></div>
-                    </div>
+            <div class="collections__mask">
+                <div class="collections__wrapper swiper-wrapper">
+                    <div class="collections__mainImg collections__mainImg-1 swiper-slide"></div>
+                    <div class="collections__mainImg collections__mainImg-2  swiper-slide"></div>
+                    <div class="collections__mainImg collections__mainImg-3  swiper-slide"></div>
+                    <div class="collections__mainImg collections__mainImg-4  swiper-slide"></div>
+                    <div class="collections__mainImg collections__mainImg-5  swiper-slide"></div>
+                    <div class="collections__mainImg collections__mainImg-6  swiper-slide"></div>
                 </div>
+            </div>
+            <div class="collections__content">
                 <div class="collections__intro">
                     <div class="collections__introContainer">
                         <div class="swiper-wrapper">
@@ -153,6 +167,8 @@
                 </div>
             </div>
         </div>
+
+        <img src="assets/SVG/earth.svg" class="collections__doodle collections__doodle-earth doodle-rotate3D"/>
         
     </div>
 
@@ -161,7 +177,7 @@
         <img src="assets/SVG/stone.svg" class="modalBlock__doodle modalBlock__doodle-stone doodle-rotate"/>
         <img src="assets/SVG/stone.svg" class="modalBlock__doodle modalBlock__doodle-stone doodle-rotate"/>
         <div class="modalBlock__3Dmodal">
-            <img src="assets/image/footerRock.png" />
+            <!-- <img src="assets/image/footerRock.png" /> -->
         </div>
         <img src="assets/logo.png" class="modalBlock__logo"/>
         <h1>NATURE. ELEGANT. CLASSIC NATURE. ELEGANT. CLASSIC</h1>

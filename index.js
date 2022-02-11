@@ -24,7 +24,7 @@ window.onload = () => {
         centeredSlides: true,
         slidesPerView: "auto",
         allowTouchMove: false,
-        spaceBetween:100,
+        spaceBetween:0,
         speed:800,
         autoplay: {
             delay: 5000,
@@ -41,6 +41,21 @@ window.onload = () => {
             rotate: 30, 
             depth: 10
         },
+
+        breakpoints:{
+            425: {
+                spaceBetween: 5
+            }, 
+            768: {
+                spaceBetween: 30
+            }, 
+            1024: {
+                spaceBetween: 50
+            },
+            1200: {
+                spaceBetween: 100
+            }, 
+        }
     });
 
     /* collections Swiper */
@@ -84,7 +99,7 @@ window.onload = () => {
     let productSliderTrigger = gsap.timeline({
         scrollTrigger: {
             trigger: ".productSlider",
-            start:"10% center",
+            start:"20% center",
             end:"+=500 center",
             scrub:true
         },
@@ -108,11 +123,11 @@ window.onload = () => {
         }
     })
 
-    productSliderTrigger.to(".productSlider__item:nth-of-type(3)" , {
+    productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
         scale: 1.6
     },"<")
 
-    productSliderTrigger.to(".productSlider__item:nth-of-type(3)" , {
+    productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
         scale: 1,
 
         onComplete: () => {
@@ -131,7 +146,7 @@ window.onload = () => {
         }
     },"+1.5")
 
-    productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
+    productSliderTrigger.to(".productSlider__item:nth-of-type(3)" , {
         scale: 1.7
     } , "<") 
 
@@ -140,14 +155,14 @@ window.onload = () => {
         scrollTrigger: {
             trigger: ".marquee h1",
             start:"top center",
-            end:"+=1320 center",
+            end:`+=${window.innerWidth < 1024 ? 240 : 1320} center`,
             scrub:true,
             pin:true
         },
     });
 
     marqueeTrigger.to(".marquee h1" , {
-        x:-1200
+        x:window.innerWidth < 1024 ? -400 : -1200
     })
 
     let doodleTrigger_line1 = gsap.timeline({
@@ -200,7 +215,7 @@ window.onload = () => {
     })
 
     modalTrigger.to(".modalBlock__logo" , {
-        width:"15%"
+        width: window.innerWidth < 1024 ? "20%" : "15%"
     })
 
     modalTrigger.to(".modalBlock h1" , {

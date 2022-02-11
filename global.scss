@@ -6,6 +6,10 @@
     padding:0;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-image: url("../assets/image/Background/bg.png");
     background-repeat: repeat;
@@ -86,6 +90,12 @@ button{
     cursor: pointer;
     white-space: nowrap;
 
+    @include mobile{
+        margin-top: 16px;
+        width: 120px;
+        height:56px;
+    }
+
     .content{
         display: block;
         overflow: hidden;
@@ -107,6 +117,10 @@ button{
         .content{
             span{
                 animation: marquee 2s linear infinite;
+
+                @include mobile{
+                    animation: none;
+                }
             }
         }
     }
@@ -157,4 +171,20 @@ button{
       transform: rotate(360deg);
     }
 }
+
+.mobile{
+    display: none;
+}
+
+@include mobile {
+    .mobile{
+        display: block;
+        
+    }
+    .desktop{
+        display: none;
+    }
+}
+
+
 
