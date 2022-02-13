@@ -37,7 +37,7 @@
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner {
     padding-bottom: 100%;
     width: 90%;
@@ -54,7 +54,7 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner__button {
     display: none;
   }
@@ -81,7 +81,7 @@
   background-image: url("../assets/image/Banner/banner1.png");
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner__img-1 {
     -webkit-mask-image: url("../assets/image/mobile-banner/mask1.png");
             mask-image: url("../assets/image/mobile-banner/mask1.png");
@@ -106,7 +106,7 @@
   background-image: url("../assets/image/Banner/banner2.png");
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner__img-2 {
     -webkit-mask-image: url("../assets/image/mobile-banner/mask2.png");
             mask-image: url("../assets/image/mobile-banner/mask2.png");
@@ -131,7 +131,7 @@
   background-image: url("../assets/image/Banner/banner3.png");
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner__img-3 {
     -webkit-mask-image: url("../assets/image/mobile-banner/mask3.png");
             mask-image: url("../assets/image/mobile-banner/mask3.png");
@@ -163,7 +163,7 @@
   max-width: 540px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .banner__doodle-sign {
     top: 30%;
   }
@@ -182,7 +182,7 @@
           justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .productSlider {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -206,12 +206,13 @@
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .productSlider__items {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
-    height: 800px;
+    height: 0;
+    padding-bottom: 180%;
   }
 }
 
@@ -274,7 +275,7 @@
           mask-position: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .productSlider__item:nth-of-type(1) {
     right: 30px;
     top: 0%;
@@ -335,7 +336,7 @@
   top: 150px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .productSlider__doodle-line1 {
     top: -180px;
     right: 50px;
@@ -349,9 +350,9 @@
   bottom: 100px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .productSlider__doodle-line2 {
-    bottom: 200px;
+    bottom: 0px;
     left: 5%;
     width: 30%;
   }
@@ -362,7 +363,7 @@
   background-image: url("../assets/image/Full Screen/b-2.png");
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .marquee {
     height: 360px;
     background-size: cover;
@@ -375,7 +376,7 @@
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .marquee h1 {
     padding-top: 20px;
   }
@@ -394,7 +395,7 @@
   height: 700px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections {
     width: 80%;
     margin: 200px auto 0;
@@ -411,7 +412,7 @@
   height: 200px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__introContainer {
     height: 140px;
   }
@@ -463,7 +464,7 @@
   top: 33%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__content {
     border-radius: 20px;
     left: 0;
@@ -488,7 +489,7 @@
           mask-position: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__mask {
     left: 0;
     padding-bottom: 100%;
@@ -520,7 +521,7 @@
   border-bottom-right-radius: 20px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__button {
     width: 80px;
     height: 35px;
@@ -560,7 +561,7 @@
           transform: rotate(90deg);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__button-prev {
     right: -80px;
   }
@@ -578,7 +579,7 @@
   max-width: 200px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__doodle-line {
     right: 0;
     width: 100%;
@@ -592,7 +593,7 @@
   max-width: 150px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__doodle-earth {
     left: 0;
     width: 40%;
@@ -604,7 +605,7 @@
   right: -5%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .collections__doodle-ball {
     right: 0;
   }
@@ -628,7 +629,7 @@
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .modalBlock {
     height: 500px;
   }
@@ -694,13 +695,13 @@
   height: 30px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .footer__logo {
     height: 20px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .footer {
     padding: 12px 14px;
   }
