@@ -106,7 +106,7 @@ window.onload = () => {
     })
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(1)" , {
-        width:'30%',
+        width: window.innerWidth < 1200 ? '30%' : '50%',
 
         onComplete: () => {
             for(let i = 1 ; i < 4 ; i++){
@@ -125,11 +125,11 @@ window.onload = () => {
     })
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
-        width:'50%'
+        width:window.innerWidth < 1200 ? '50%' : '80%',
     },"<")
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(2)" , {
-        width:'30%',
+        width:window.innerWidth < 1200 ? '30%' : '50%',
 
         onComplete: () => {
             for(let i = 1 ; i < 4 ; i++){
@@ -148,7 +148,7 @@ window.onload = () => {
     },"+1.5")
 
     productSliderTrigger.to(".productSlider__item:nth-of-type(3)" , {
-        width:'50%'
+        width:window.innerWidth < 1200 ? '50%' : '80%',
     } , "<") 
 
     /* Scrolltrigger marquee */
@@ -156,20 +156,21 @@ window.onload = () => {
         scrollTrigger: {
             trigger: ".marquee h1",
             start:"top center",
-            end:`+=${window.innerWidth < 1024 ? 240 : 1320} center`,
+            end:`+=${window.innerWidth < 1200 ? 240 : 1320} center`,
             scrub:true,
             pin:true
         },
     });
 
     marqueeTrigger.to(".marquee h1" , {
-        x:window.innerWidth < 1024 ? -400 : -1200
+        x:window.innerWidth < 1200 ? -400 : -1200
     })
 
     let doodleTrigger_line1 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".productSlider",
-            start:"top center"
+            trigger: ".productSlider__doodle-line1",
+            start:"top center",
+            toggleActions: "restart none restart none"
         },
     })
 
@@ -182,7 +183,8 @@ window.onload = () => {
     let doodleTrigger_line2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".productSlider",
-            start:"center center"
+            start:"center center",
+            toggleActions: "restart none restart none"
         },
     })
 
@@ -194,8 +196,10 @@ window.onload = () => {
 
     let doodleTrigger_line3 = gsap.timeline({
         scrollTrigger: {
-            trigger: ".collections",
-            start:"-=200 center"
+            trigger: ".collections__doodle-line",
+            start:"top bottom",
+            markers:true,
+            toggleActions: "restart none restart none"
         },
     })
 
@@ -206,21 +210,112 @@ window.onload = () => {
     })
 
 
-    let modalTrigger = gsap.timeline({
+    let modelTrigger = gsap.timeline({
         scrollTrigger: {
-            trigger: ".modalBlock",
+            trigger: ".modelBlock",
             start:"10% 70%",
             end:"bottom bottom",
             scrub:true
         },
     })
 
-    modalTrigger.to(".modalBlock__logo" , {
-        width: window.innerWidth < 1024 ? "20%" : "15%"
+    modelTrigger.to(".modelBlock__logo" , {
+        width: window.innerWidth < 1200 ? "20%" : "15%"
     })
 
-    modalTrigger.to(".modalBlock h1" , {
+    modelTrigger.to(".modelBlock h1" , {
         x:-300
     } , "<")
+
+    let boxRotate = {
+        degree:0
+    }
+    modelTrigger.to(boxRotate , {
+        degree:Math.PI * 2,
+        ease:Power0.easeNone
+    } , "<")
+
+
+
+
+    /* three.js */
+    //scene
+    var scene = new THREE.Scene();
+    let el_modelBlock = document.querySelector(".modelBlock").getBoundingClientRect()
+
+    //camera
+    var camera = new THREE.PerspectiveCamera( 45, el_modelBlock.width/el_modelBlock.height, 0.1, 1000 );
+    camera.position.set(0, 0, 0.28) 
+    camera.lookAt(scene.position) 
+
+    //light
+    const light = new THREE.DirectionalLight( 0xffffff , 5 );
+	light.position.set( 0, 0, 2 );
+	scene.add( light );
+
+    spotLight = new THREE.SpotLight( 0xffffff, 1 );
+    spotLight.position.set( 0 , 100 , 0 );
+    spotLight.angle = 0.01;
+    spotLight.penumbra = 0.1;
+    spotLight.decay = 2;
+    spotLight.distance = 200;
+    spotLight.castShadow = true;
+    scene.add( spotLight );
+
+
+    //renderer
+    var renderer = new THREE.WebGLRenderer({
+        antialias:true,
+        alpha: true
+    });
+
+    renderer.setClearColor( 0x000000 , 0 );
+    renderer.setSize( el_modelBlock.width , el_modelBlock.height );
+    renderer.shadowMap.enable = true
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+	renderer.outputEncoding = THREE.sRGBEncoding;
+
+    // Append Renderer to DOM
+    document.querySelector(".modelBlock__3Dmodel").appendChild( renderer.domElement );
+
+
+    // Render Loop
+    var render = function () {
+        requestAnimationFrame( render );
+
+        pivot.rotation.y = boxRotate.degree;
+
+        renderer.render(scene, camera);
+    };
+
+    let StoneModel;
+    let pivot;
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+        './assets/stone.gltf',
+        function ( gltf ) {
+
+            StoneModel = gltf.scene;
+            StoneModel.position.set(-0.02,-0.1,-0.05);
+            
+            pivot = new THREE.Group();
+            if(window.innerWidth < 1200){
+                let acc = window.innerWidth / 1200
+                pivot.scale.set(acc , acc , acc)
+            }else{
+                pivot.scale.set(0.9 , 0.9 , 0.9)
+            }
+
+            pivot.add( StoneModel );
+            scene.add( pivot );
+    
+            render();
+
+        },
+        function(xhr){
+            console.log((xhr.loaded / xhr.total * 100) + "% loaded")
+        }
+    );
+
     
 }

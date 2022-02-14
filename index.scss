@@ -120,7 +120,7 @@
 
     &__items{
         flex: 1;
-        height: 1054px;
+        padding-bottom: 100%;
         position: relative;
 
         @include mobile{
@@ -134,7 +134,7 @@
         position: absolute;
         z-index: 100;
 
-        @mixin itemsStyle($index , $right , $top , $IsBig:false) {
+        @mixin itemsStyle($index , $right , $top , $width) {
             &:nth-of-type(#{$index}){
                 @if $right > 0{
                     right:$right;
@@ -143,12 +143,7 @@
                 }
 
                 top:$top;
-                
-                @if $IsBig{
-                    width: 50%;
-                }@else{
-                    width: 30%;
-                }
+                width: $width;
                 
                 img{
                     width: 100%;
@@ -157,15 +152,15 @@
             }
         }
 
-        @include itemsStyle(1 , 120px , 120px , $IsBig: true);
-        @include itemsStyle(2 , 600px , 480px);
-        @include itemsStyle(3 , 120px , 650px);
+        @include itemsStyle(1 , 120px , 120px , 80%);
+        @include itemsStyle(2 , 600px , 480px , 50%);
+        @include itemsStyle(3 , 120px , 650px , 50%);
 
         @include mobile{
 
-            @include itemsStyle(1 , 30px , 0% , $IsBig: true);
-            @include itemsStyle(2 , -1px , 30%);
-            @include itemsStyle(3 , 30px , 60%);
+            @include itemsStyle(1 , 30px , 0% , 50%);
+            @include itemsStyle(2 , -1px , 30% , 30%);
+            @include itemsStyle(3 , 30px , 60% , 30%);
         }
     }
 
@@ -185,8 +180,8 @@
         }
 
         &-line2{
-            left: -200px;
-            bottom: 100px;
+            left: -360px;
+            bottom: 10%;
 
             @include mobile{
                 bottom: 0px;
@@ -227,16 +222,21 @@
     width: 60%;
     margin: 290px auto 0 ;
     position: relative;
-    height: 700px;
+    height: 0;
+    padding-bottom: 50%;
 
     @include mobile{
         width: 80%;
+        max-width: 500px;
         margin: 200px auto 0 ;
+        padding-bottom: calc(min(80% , 500px) + 180px + 100px);
+        max-width: 500px;
     }
 
     &__intro{
         position: absolute;
         bottom:16px;
+        margin-left: 15px;
     }
 
     &__introContainer{
@@ -285,14 +285,14 @@
         left: 5%;
         z-index: 100;
         width: 100%;
-        top: 33%;
+        top: 220px;
 
         @include mobile{
             border-radius: 20px;
             left: 0;
-            padding: 0 15px 100%;
-            width: 80%;
-            top: 25%;
+            padding: 0 0 100% 0;
+            width: 90%;
+            top:180px;
         }
         
     }
@@ -386,14 +386,16 @@
         }
 
         &-earth{
-            top:75%;
-            left: -150px;
+            margin-top: 10%;
+            left: -200px;
             width: 20%;
             max-width: 150px;
 
             @include mobile{
                 left: 0;
-                width: 40%;
+                width: 70px;
+                max-width: 70px;
+                bottom: 0;
             }
         }
 
@@ -408,8 +410,8 @@
     }
 }
 
-.modalBlock{
-    height: 800px;
+.modelBlock{
+    height: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -417,7 +419,7 @@
     position: relative;
 
     @include mobile{
-        height: 500px
+        height: 600px
     }
 
     &__doodle{
@@ -439,7 +441,7 @@
         }
     }
 
-    &__3Dmodal{
+    &__3Dmodel{
         position: absolute;
         z-index: 100;
 
